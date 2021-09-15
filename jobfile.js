@@ -7,7 +7,7 @@ const hooks = krawler.hooks
 
 const imagePattern = 'YYYYMMDD_HHmm_[Radar].png'
 const storePattern = 'YYYY/MM/DD/HHmm.tif'
-const workingDir = './data'
+const workingDir = './output'
 const frequency = 900000    // every 15 minutes
 const history = 12
 
