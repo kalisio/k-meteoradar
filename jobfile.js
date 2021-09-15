@@ -42,7 +42,9 @@ let generateTasks = (options) => {
     return hook
   }
 }
+hooks.registerHook('generateTasks', generateTasks)
 
+// Create a custom hook to remove the files older than 4 hours
 let clearWorkingDir = (options) => {
   return function (hook) {
     fs.readdirSync(workingDir).forEach(file => {
@@ -55,8 +57,6 @@ let clearWorkingDir = (options) => {
     return hook
   }
 }
-
-hooks.registerHook('generateTasks', generateTasks)
 hooks.registerHook('clearWorkingDir', clearWorkingDir)
 
 module.exports = {
