@@ -20,7 +20,7 @@ RUN cd /opt/krawler && yarn link && yarn link @kalisio/krawler
 
 # Install the job
 COPY jobfile.js .
-COPY trasnform.sh .
+COPY transform.sh .
 RUN chmod +x transform.sh
 
 # Run the job
