@@ -1,4 +1,4 @@
-# k-openradiation
+# k-meteoradar
 
 [![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-meteoradar?sort=semver&label=latest)](https://github.com/kalisio/k-meteoradar/releases)
 [![Build Status](https://app.travis-ci.com/kalisio/k-meteoradar.svg?branch=master)](https://app.travis-ci.com/kalisio/k-meteoradar)
