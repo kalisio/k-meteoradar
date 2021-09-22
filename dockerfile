@@ -11,7 +11,7 @@ FROM kalisio/krawler:${KRAWLER_TAG} AS krawler
 FROM node:12-buster-slim
 LABEL maintainer="Kalisio <contact@kalisio.xyz>"
 
-ENV CRON="0 */10 * * * *"
+ENV CRON="0 */15 * * * *"
 
 # Install GDAL
 RUN apt-get update && apt-get -y install gdal-bin
