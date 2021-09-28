@@ -24,8 +24,22 @@ gdal_translate -of GTiff -co COMPRESS=DEFLATE -co NUM_THREADS=ALL_CPUS \
   -a_ullr -619652.074 -3526818.338 916347.926 -5062818.338 \
   ${PNG_FILE} ${TIF_FILE}.tmp
 
+if [ $? -ne 0 ]; then
+   echo "Error while applying gdal_translate"
+   rm ${PNG_FILE}
+   exit 1
+fi
+
+
 gdalwarp -overwrite -dstnodata 0 -t_srs EPSG:4326 \
   -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co COPY_SRC_OVERVIEWS=YES \
   ${TIF_FILE}.tmp ${TIF_FILE}
+
+if [ $? -ne 0 ]; then
+   echo "Error while applying gdalwarp"
+   rm ${PNG_FILE}
+   rm ${TIF_FILE}.tmp
+   exit 1
+fi
 
 rm ${TIF_FILE}.tmp
