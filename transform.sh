@@ -16,8 +16,6 @@ TIF_FILE=$2
 # https://gdal.org/programs/gdaladdo.html
 # https://github.com/cogeotiff/cog-spec/blob/master/spec.md
 
-#-8.56112814973406671 54.0313919517155261 12.4514144028276711 39.4677959434222174 \
-
 gdal_translate -of GTiff -co COMPRESS=DEFLATE -co NUM_THREADS=ALL_CPUS \
   -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co COPY_SRC_OVERVIEWS=YES \
   -a_srs "+title=thomas +proj=stere +lat_0=90 +lat_ts=45 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" \
@@ -29,7 +27,6 @@ if [ $? -ne 0 ]; then
    rm ${PNG_FILE}
    exit 1
 fi
-
 
 gdalwarp -overwrite -dstnodata 0 -t_srs EPSG:4326 \
   -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co COPY_SRC_OVERVIEWS=YES \
