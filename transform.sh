@@ -16,10 +16,12 @@ TIF_FILE=$2
 # https://gdal.org/programs/gdaladdo.html
 # https://github.com/cogeotiff/cog-spec/blob/master/spec.md
 
-gdal_translate -of GTiff -co COMPRESS=DEFLATE -co NUM_THREADS=ALL_CPUS \
-  -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co COPY_SRC_OVERVIEWS=YES \
+# png to geotiff with proper georeferencing
+gdal_translate \
   -a_srs "+title=thomas +proj=stere +lat_0=90 +lat_ts=45 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" \
   -a_ullr -619652.074 -3526818.338 916347.926 -5062818.338 \
+  -a_nodata 0 \
+  -of COG \
   ${PNG_FILE} ${TIF_FILE}.tmp
 
 if [ $? -ne 0 ]; then
@@ -28,8 +30,12 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
-gdalwarp -overwrite -dstnodata 0 -t_srs EPSG:4326 \
-  -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co COPY_SRC_OVERVIEWS=YES \
+# project to 4326
+gdalwarp \
+  -overwrite \
+  -t_srs EPSG:4326 \
+  -of COG \
+  -co COMPRESS=DEFLATE \
   ${TIF_FILE}.tmp ${TIF_FILE}
 
 if [ $? -ne 0 ]; then
