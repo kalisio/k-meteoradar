@@ -7,14 +7,18 @@ A [Krawler](https://kalisio.github.io/krawler/) based service to download public
 
 ## Description
 
-TOTO
+The **k-meteoradar** job scrapes public Radar rainfall data from Meteo France public server. The downloaded images are stored in PNG format without any georeference information. 
+The job first georeferenced the image and then converts it to [COG format](https://www.cogeo.org/) and copies it to a store.
+
+The major part of the process is done using [GDAL](https://gdal.org/index.html)
+ 
+The job scrapes the data according a specific cron expression. By default every 15 minutes.
 
 ## Configuration
 
 | Variable | Description |
 |--- | --- |
 | `S3_ENDPOINT` | The store endpoint. | - |
-| `S3_REGION` | The store region |
 | `S3_ACCESS_KEY` | The key to access the store. | - |
 | `S3_SECRET_ACCESS_KEY` | The secret to access the store. |
 | `S3_BUCKET` | The bucket where to store the files. | - |
