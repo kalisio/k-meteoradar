@@ -3,6 +3,7 @@
   "description": "A krwaler job to scrape Meteo France radar images",
   "version": "1.0.0",
   "homepage": "https://github.com/kalisio/k-meteoradar",
+  "type": "module", 
   "keywords": [
     "krawler",
     "meteo",
@@ -30,11 +31,14 @@
     "release:patch": "npm run changelog -- -p && git add CHANGELOG.md && git commit -m \"chore: Updated CHANGELOG.md [skip ci]\" && git push && npm version --force patch",
     "postversion": "git push origin --tags"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mkdirp": "^1.0.4",
+    "moment": "^2.29.3"
+  },
   "devDependencies": {
     "generate-changelog": "^1.8.0"
   },
   "peerDependencies": {
-    "@kalisio/krawler": "1.2.0"
+    "@kalisio/krawler": "2.0.0"
   }
 }

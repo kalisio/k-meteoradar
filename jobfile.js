@@ -1,9 +1,9 @@
-const moment = require('moment')
-const fs = require('fs')
-const mkdirp = require('mkdirp')
-const path = require('path')
-const krawler = require('@kalisio/krawler')
-const hooks = krawler.hooks
+import moment from 'moment'
+import fs from 'fs'
+import mkdirp from 'mkdirp'
+import path from 'path'
+import { hooks } from '@kalisio/krawler'
+
 
 const imagePattern = 'YYYYMMDD_HHmm_[Radar].png'
 const storePattern = 'YYYY/MM/DD/HHmm.tif'
@@ -59,7 +59,7 @@ let clearWorkingDir = (options) => {
 }
 hooks.registerHook('clearWorkingDir', clearWorkingDir)
 
-module.exports = {
+export default {
   id: 'metaoradar',
   store: 'fs',
   options: {

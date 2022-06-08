@@ -8,7 +8,7 @@ FROM kalisio/krawler:${KRAWLER_TAG} AS krawler
 #
 # Make the job image using the krawler image alias
 #
-FROM node:12-buster-slim
+FROM node:16-buster-slim
 LABEL maintainer="Kalisio <contact@kalisio.xyz>"
 
 ENV CRON="0 */15 * * * *"
@@ -18,7 +18,11 @@ RUN apt-get update && apt-get -y install gdal-bin
 
 # Copy Krawler
 COPY --from=krawler /opt/krawler /opt/krawler
-RUN cd /opt/krawler && yarn link && yarn link @kalisio/krawler
+WORKDIR /opt/krawler
+RUN yarn link && yarn link @kalisio/krawler
+
+# Required as yarn does not seem to set it correctly
+RUN chmod u+x /usr/local/bin/krawler
 
 # Install the job
 COPY jobfile.js .
@@ -26,6 +30,4 @@ COPY transform.sh .
 RUN chmod +x transform.sh
 
 # Run the job
-ENV NODE_PATH=/opt/krawler/node_modules
-CMD node /opt/krawler --cron "$CRON" jobfile.js
-
+CMD krawler --cron "$CRON" jobfile.js
