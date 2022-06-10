@@ -19,15 +19,14 @@ RUN apt-get update && apt-get -y install gdal-bin
 # Copy Krawler
 COPY --from=krawler /opt/krawler /opt/krawler
 WORKDIR /opt/krawler
-RUN yarn link && yarn link @kalisio/krawler
-
+RUN yarn link
 # Required as yarn does not seem to set it correctly
 RUN chmod u+x /usr/local/bin/krawler
 
-# Install the job
-COPY jobfile.js .
-COPY transform.sh .
-RUN chmod +x transform.sh
+# Copy the job and install the dependencies
+COPY jobfile.js transform.sh package.json yarn.lock /opt/job/
+WORKDIR /opt/job
+RUN chmod +x transform.sh && yarn && yarn link @kalisio/krawler
 
 # Run the job
 CMD krawler --cron "$CRON" jobfile.js

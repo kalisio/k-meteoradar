@@ -23,7 +23,7 @@ let generateTasks = (options) => {
       const imageName = time.format(imagePattern)
       // Check whether it needs to donwload the data or not
       console.log('checking ', imageName)
-      if(!fs.existsSync(path.join(workingDir, imageName))) {
+      if (!fs.existsSync(path.join(workingDir, imageName))) {
         console.log('processing ', imageName)
         if (!fs.existsSync(workingDir)) mkdirp.sync(workingDir)
         tasks.push({
@@ -122,7 +122,7 @@ export default {
         }
       },
       error: {
-        removeFSStore: {
+        /*removeFSStore: {
           hook: 'removeStore',
           id: 'fs'
         },
@@ -130,7 +130,7 @@ export default {
           hook: 'removeStore',
           match: { predicate: () => process.env.S3_BUCKET },
           id: 's3'
-        }
+        }*/
       }
     }
   }
