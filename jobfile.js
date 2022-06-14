@@ -1,6 +1,4 @@
 import moment from 'moment'
-import fs from 'fs'
-import mkdirp from 'mkdirp'
 import path from 'path'
 import { hooks } from '@kalisio/krawler'
 
@@ -11,7 +9,6 @@ const frequency = 900000    // every 15 minutes
 const history = 12
 
 const outputDir = './output'
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir)
 
 // Create a custom hook to generate tasks
 let generateTasks = (options) => {
@@ -24,7 +21,6 @@ let generateTasks = (options) => {
       const time = moment(nearestTime - i * frequency).utc()
       const imageName = time.format(imagePattern)
       console.log('processing ', imageName)
-      if (!fs.existsSync(outputDir)) mkdirp.sync(outputDir)
       tasks.push({
         id: imageName,
         options: {
@@ -80,14 +76,10 @@ export default {
         generateTasks: {}
       },
       after: {
-        removeStore: {
-          id: 'fs'
-        }
+        removeStore: ['fs']
       },
       error: {
-        removeStore: {
-          id: 'fs'
-        }
+        removeStore: ['fs']
       }
     }
   }
