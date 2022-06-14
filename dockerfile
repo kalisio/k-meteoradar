@@ -14,7 +14,15 @@ LABEL maintainer="Kalisio <contact@kalisio.xyz>"
 ENV CRON="0 */15 * * * *"
 
 # Install GDAL
-RUN apt-get update && apt-get -y install gdal-bin
+RUN apt-get update && apt-get -y install gdal-bin curl unzip
+
+# Install rclone
+RUN curl -k -O https://downloads.rclone.org/rclone-current-linux-amd64.zip \
+    && unzip rclone-current-linux-amd64.zip \
+    && cd rclone-*-linux-amd64 \
+    && cp rclone /usr/bin/ \
+    && chown root:root /usr/bin/rclone \
+    && chmod 755 /usr/bin/rclone 
 
 # Copy Krawler
 COPY --from=krawler /opt/krawler /opt/krawler
@@ -24,7 +32,7 @@ RUN yarn link
 RUN chmod u+x /usr/local/bin/krawler
 
 # Copy the job and install the dependencies
-COPY jobfile.js transform.sh package.json yarn.lock /opt/job/
+COPY jobfile.js transform.sh rclone.conf.tpl package.json yarn.lock /opt/job/
 WORKDIR /opt/job
 RUN chmod +x transform.sh && yarn && yarn link @kalisio/krawler
 
