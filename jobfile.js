@@ -39,7 +39,7 @@ let generateTasks = (options) => {
 hooks.registerHook('generateTasks', generateTasks)
 
 export default {
-  id: 'metaoradar',
+  id: 'meteoradar',
   store: 'fs',
   options: {
     workersLimit: 1,
@@ -47,7 +47,6 @@ export default {
   },
   taskTemplate: {
     type: 'http',
-    store: 'fs',
     faultTolerant: true
   },
   hooks: {
