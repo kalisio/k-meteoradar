@@ -32,7 +32,7 @@ RUN yarn link
 RUN chmod u+x /usr/local/bin/krawler
 
 # Copy the job and install the dependencies
-COPY jobfile.js transform.sh rclone.conf.tpl package.json yarn.lock /opt/job/
+COPY jobfile.js transform.sh package.json yarn.lock /opt/job/
 WORKDIR /opt/job
 RUN chmod +x transform.sh && yarn && yarn link @kalisio/krawler
 
