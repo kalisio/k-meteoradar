@@ -18,11 +18,11 @@ The job scrapes the data according a specific cron expression. By default every 
 
 | Variable | Description |
 |--- | --- |
-| `S3_ENDPOINT` | The store endpoint. | - |
-| `S3_ACCESS_KEY` | The key to access the store. | - |
-| `S3_SECRET_ACCESS_KEY` | The secret to access the store. |
-| `S3_BUCKET` | The bucket where to store the files. | - |
+| `STORE_PATH` | The path where to store the files | - |
 | `DEBUG` | Enables debug output. Set it to `krawler*` to enable full output. By default it is undefined. |
+
+Setting the **STORE_PATH** environment variable triggers the copying of files to a given store using [Rclone](https://rclone.org/).
+It is then required to define the remote store using [Rclone environment variables](https://rclone.org/docs/#environment-variables).
 
 ## Deployment
 

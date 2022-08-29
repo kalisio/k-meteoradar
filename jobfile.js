@@ -59,7 +59,7 @@ export default {
         rcloneCopy: {
           hook: 'runCommand',
           match: { predicate: () => storePath },
-          command: `rclone copy ${outputDir}/<%= options.fsKey %> store:${storePath}/<%= options.storeKey %>`
+          command: `rclone copyto ${outputDir}/<%= options.fsKey %> store:${storePath}/<%= options.storeKey %> -v`
         },
       },
     },
