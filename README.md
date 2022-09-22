@@ -21,7 +21,7 @@ The job scrapes the data according a specific cron expression. By default every 
 | `STORE_PATH` | The path where to store the files | - |
 | `DEBUG` | Enables debug output. Set it to `krawler*` to enable full output. By default it is undefined. |
 
-Setting the **STORE_PATH** environment variable triggers the copying of files to a given store using [Rclone](https://rclone.org/).
+Setting the **STORE_PATH** environment variable triggers files copy to a predefined store using [Rclone](https://rclone.org/).
 It is then required to define the remote store using [Rclone environment variables](https://rclone.org/docs/#environment-variables).
 
 ## Deployment
