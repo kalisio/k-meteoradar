@@ -4,17 +4,19 @@ ARG KRAWLER_TAG
 # Make a Krawler image alias to be able to take into account the KRAWLER_TAG argument
 #
 FROM kalisio/krawler:${KRAWLER_TAG} AS krawler
-
-#
-# Make the job image using the krawler image alias
-#
-FROM node:16-buster-slim
 LABEL maintainer="Kalisio <contact@kalisio.xyz>"
 
 ENV CRON="0 */15 * * * *"
 
+USER root
+
 # Install GDAL
-RUN apt-get update && apt-get -y install gdal-bin curl unzip
+RUN DEBIAN_FRONTEND=noninteractive && \
+  apt-get update && \
+  apt-get --no-install-recommends --yes install \
+  gdal-bin proj-bin curl ca-certificates unzip && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 # Install rclone
 RUN curl -k -O https://downloads.rclone.org/rclone-current-linux-amd64.zip \
@@ -24,17 +26,12 @@ RUN curl -k -O https://downloads.rclone.org/rclone-current-linux-amd64.zip \
     && chown root:root /usr/bin/rclone \
     && chmod 755 /usr/bin/rclone 
 
-# Copy Krawler
-COPY --from=krawler /opt/krawler /opt/krawler
-WORKDIR /opt/krawler
-RUN yarn link
-# Required as yarn does not seem to set it correctly
-RUN chmod u+x /usr/local/bin/krawler
+USER node
 
 # Copy the job and install the dependencies
-COPY jobfile.js transform.sh package.json yarn.lock /opt/job/
+COPY --chown=node:node jobfile.js transform.sh package.json yarn.lock /opt/job/
 WORKDIR /opt/job
-RUN chmod +x transform.sh && yarn && yarn link @kalisio/krawler
+RUN chmod +x transform.sh && yarn && yarn link @kalisio/krawler && yarn cache clean
 
 # Run the job
 CMD krawler --cron "$CRON" jobfile.js
