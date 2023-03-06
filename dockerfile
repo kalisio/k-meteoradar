@@ -14,7 +14,7 @@ USER root
 RUN DEBIAN_FRONTEND=noninteractive && \
   apt-get update && \
   apt-get --no-install-recommends --yes install \
-  gdal-bin proj-bin curl ca-certificates unzip && \
+  gdal-bin ca-certificates unzip && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
