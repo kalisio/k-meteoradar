@@ -10,21 +10,13 @@ ENV CRON="0 */15 * * * *"
 
 USER root
 
-# Install GDAL
+# Install GDAL, rclone, unzip
 RUN DEBIAN_FRONTEND=noninteractive && \
   apt-get update && \
   apt-get --no-install-recommends --yes install \
-  gdal-bin ca-certificates unzip && \
+  gdal-bin ca-certificates unzip rclone && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
-
-# Install rclone
-RUN curl -k -O https://downloads.rclone.org/rclone-current-linux-amd64.zip \
-    && unzip rclone-current-linux-amd64.zip \
-    && cd rclone-*-linux-amd64 \
-    && cp rclone /usr/bin/ \
-    && chown root:root /usr/bin/rclone \
-    && chmod 755 /usr/bin/rclone 
 
 USER node
 
