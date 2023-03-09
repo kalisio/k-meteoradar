@@ -1,3 +1,5 @@
+Please refer to GitHub issues for changelog starting from v1.2: https://github.com/kalisio/k-meteoradar/issues.
+
 ### 1.1.0 (2023-03-09)
 
 ##### New Features
