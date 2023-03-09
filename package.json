@@ -1,7 +1,7 @@
 {
   "name": "k-meteoradar",
   "description": "A krwaler job to scrape Meteo France radar images",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/kalisio/k-meteoradar",
   "type": "module",
   "keywords": [
@@ -34,8 +34,7 @@
     "mkdirp": "^1.0.4",
     "moment": "^2.29.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "@kalisio/krawler": "2.3.0"
   }
