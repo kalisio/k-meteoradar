@@ -1,3 +1,14 @@
+### 1.1.0 (2023-03-09)
+
+##### New Features
+
+*  Use rclone instead of s3 store (close [#3](https://github.com/kalisio/k-meteoradar/pull/3)) feat: Upgrade NodeJS to v16 and krawler to latest version (close [#2](https://github.com/kalisio/k-meteoradar/pull/2)) ([9b4486f8](https://github.com/kalisio/k-meteoradar/commit/9b4486f877f07dbe7d3767e9e296278651042807))
+
+##### Other Changes
+
+*  Use rclone instead of s3 store [#3](https://github.com/kalisio/k-meteoradar/pull/3) ([126c8f31](https://github.com/kalisio/k-meteoradar/commit/126c8f3122fa775729aaf6c9e37735f94a975677))
+*  Upgrade NodeJS to v16 and krawler to latest version [#2](https://github.com/kalisio/k-meteoradar/pull/2) ([bf14f7a7](https://github.com/kalisio/k-meteoradar/commit/bf14f7a757cdb3339663a35da5c2acf9dff17085))
+
 ## 1.0.0 (2021-10-19)
 
 #### First release 
