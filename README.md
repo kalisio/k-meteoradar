@@ -1,7 +1,7 @@
 # k-meteoradar
 
 [![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-meteoradar?sort=semver&label=latest)](https://github.com/kalisio/k-meteoradar/releases)
-[![Build Status](https://app.travis-ci.com/kalisio/k-meteoradar.svg?branch=master)](https://app.travis-ci.com/kalisio/k-meteoradar)
+[![ci](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml)
 
 A [Krawler](https://kalisio.github.io/krawler/) based service to download public [Rainfall Radar data from MeteoFrance](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=98&id_rubrique=34).
 
