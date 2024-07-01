@@ -2,8 +2,6 @@
 
 [![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-meteoradar?sort=semver&label=latest)](https://github.com/kalisio/k-meteoradar/releases)
 [![CI](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml)
-[![Code Climate](https://codeclimate.com/github/kalisio/k-meteoradar/badges/gpa.svg)](https://codeclimate.com/github/kalisio/k-meteoradar)
-[![Test Coverage](https://codeclimate.com/github/kalisio/k-meteoradar/badges/coverage.svg)](https://codeclimate.com/github/kalisio/k-meteoradar/coverage)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A [Krawler](https://kalisio.github.io/krawler/) based service to download public [Rainfall Radar data from MeteoFrance](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=98&id_rubrique=34).
