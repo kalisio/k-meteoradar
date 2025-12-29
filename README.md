@@ -3,7 +3,6 @@
 [![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-meteoradar?sort=semver&label=latest)](https://github.com/kalisio/k-meteoradar/releases)
 [![CI](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-meteoradar/actions/workflows/main.yaml)
 [![Maintainability Issues](https://sonar.portal.kalisio.com/api/project_badges/measure?project=kalisio-k-meteoradar&metric=software_quality_maintainability_issues&token=sqb_fee06c57a25acbb2bb11d99b95888f37c8050234)](https://sonar.portal.kalisio.com/dashboard?id=kalisio-k-meteoradar)
-[![Coverage](https://sonar.portal.kalisio.com/api/project_badges/measure?project=kalisio-k-meteoradar&metric=coverage&token=sqb_fee06c57a25acbb2bb11d99b95888f37c8050234)](https://sonar.portal.kalisio.com/dashboard?id=kalisio-k-meteoradar)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A [Krawler](https://kalisio.github.io/krawler/) based service to download public [Rainfall Radar data from MeteoFrance](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=98&id_rubrique=34).
