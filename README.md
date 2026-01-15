@@ -10,11 +10,11 @@ A [Krawler](https://kalisio.github.io/krawler/) based service to download public
 
 ## Description
 
-The **k-meteoradar** job scrapes public Radar rainfall data from Meteo France public server. The downloaded images are stored in PNG format without any georeference information. 
+The **k-meteoradar** job scrapes public Radar rainfall data from Meteo France public server. The downloaded images are stored in PNG format without any georeference information.
 The job first georeferenced the image and then converts it to [COG format](https://www.cogeo.org/) and copies it to a store.
 
 The major part of the process is done using [GDAL](https://gdal.org/index.html)
- 
+
 The job scrapes the data according a specific cron expression. By default every 15 minutes.
 
 ## Configuration
@@ -35,12 +35,10 @@ We personally use [Kargo](https://kalisio.github.io/kargo/) to deploy the servic
 
 Please refer to [contribution section](./CONTRIBUTING.md) for more details.
 
-## Authors
-
-This project is sponsored by 
-
-![Kalisio](https://s3.eu-central-1.amazonaws.com/kalisioscope/kalisio/kalisio-logo-black-256x84.png)
-
 ## License
 
-This project is licensed under the MIT License - see the [license file](./LICENSE) for details
+Licensed under the [MIT license](LICENSE).
+
+Copyright (c) 2017-20xx [Kalisio](https://kalisio.com)
+
+[![Kalisio](https://kalisio.github.io/kalisioscope/kalisio/kalisio-logo-black-256x84.png)](https://kalisio.com)
